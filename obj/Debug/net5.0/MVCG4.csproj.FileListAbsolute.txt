@@ -160,3 +160,4 @@ D:\Learning\KY05\PRN211\Group4PRN\MVCG4\obj\Debug\net5.0\Razor\Views\Register\Re
 D:\Learning\KY05\PRN211\Group4PRN\MVCG4\obj\Debug\net5.0\Razor\Views\Home\IndexAll.cshtml.g.cs
 D:\Learning\KY05\PRN211\Group4PRN\MVCG4\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
 D:\Learning\KY05\PRN211\Group4PRN\MVCG4\obj\Debug\net5.0\Razor\Views\Shared\_AdminPage.cshtml.g.cs
+D:\Learning\KY05\PRN211\Group4PRN\MVCG4\obj\Debug\net5.0\MVCG4.sourcelink.json
