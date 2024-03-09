@@ -1,0 +1,188 @@
+﻿@model Dictionary<string, IEnumerable<Product>>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_HomePage.cshtml";
+}
+
+<div class="container p-0 m-0">
+    <div class="row">
+        <div class="d-flex flex-column justify-content-between col-lg-2 col-md-3 col-sm-3 min-vh-100 border border-1">
+            <div class="slide-bar">
+                <ul class="menu">
+                    <li class="item">
+                        <p class="sub-btn m-0"><a class="text-decoration-none text-black"
+                                asp-action="SNL" asp-controller="Home">Set nguyên
+                                liệu</a><i class="fas fa-angle-right dropdown"></i></p>
+                        <div class="sub-menu m-0">
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black"
+                                    asp-action="SNLSinhNhat" asp-controller="Home">Set
+                                    nguyên liệu
+                                    bánh sinh nhật</a></p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black "
+                                   asp-action="SNLCookie" asp-controller="Home">Set
+                                    nguyên liệu
+                                    bánh cookie</a></p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black "
+                                    asp-action="SNLBanhMi" asp-controller="Home">Set
+                                    nguyên liệu
+                                    bánh mì</a></p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black"
+                                    asp-action="SNLAnVat" asp-controller="Home">Set
+                                    nguyên liệu
+                                    bánh ăn vặt</a></p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black"
+                                   asp-action="SNLSoCoLa" asp-controller="Home">Set
+                                    nguyên liệu
+                                    làm socola</a></p>
+                        </div>
+                    </li>
+
+                    <li class="item">
+                        <p class="sub-btn m-0"><a class="text-decoration-none text-black"
+                               asp-action="BoKem" asp-controller="Home">Kem, Bơ, Sữa,
+                                Phô mai</a><i class="fas fa-angle-right dropdown"></i>
+                        </p>
+                        <div class="sub-menu m-0">
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black"
+                                   asp-action="Bo" asp-controller="Home">Bơ</a>
+                            </p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black"
+                                   asp-action="Kem" asp-controller="Home">Whipping(Cream)</a>
+                            </p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black"
+                                    asp-action="PhoMai" asp-controller="Home">Phô
+                                    mai(cheese)</a></p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black "
+                                    asp-action="Sua" asp-controller="Home">Sữa
+                                    và sản phẩm
+                                    làm từ sữa</a></p>
+                        </div>
+                    </li>
+
+                    <li class="item">
+                        <p class="sub-btn m-0"><a class="text-decoration-none text-black"
+                              asp-action="Bot" asp-controller="Home">Bột làm bánh</a><i
+                                class="fas fa-angle-right dropdown"></i></p>
+                        <div class="sub-menu m-0">
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black"
+                                   asp-action="BotMi" asp-controller="Home">Bột
+                                    mì làm
+                                    bánh</a></p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black m-0"
+                                   asp-action="BotMiNC" asp-controller="Home">Bột
+                                    mì nguyên
+                                    cám</a></p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black m-0"
+                                   asp-action="BotTron" asp-controller="Home">Bột
+                                    trộn
+                                    sẵn</a></p>
+
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black m-0"
+                                   asp-action="BotKhac" asp-controller="Home">Bột
+                                    làm bánh
+                                    khác</a></p>
+                        </div>
+                    </li>
+
+                    <li class="item">
+                        <p class="sub-btn m-0"><a class="text-decoration-none text-black"
+                                asp-action="PhuGia" asp-controller="Home">Phụ gia</a><i class="fas fa-angle-right dropdown"></i>
+                        </p>
+                        <div class="sub-menu m-0">
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black"
+                                    asp-action="Men" asp-controller="Home">Men nở và
+                                    phụ gia
+                                    nhỏ</a></p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black m-0"
+                                    asp-action="Duong" asp-controller="Home">Đường các
+                                    loại</a></p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black m-0"
+                                   asp-action="Huong" asp-controller="Home">Hương
+                                    liệu và
+                                    tinh dầu</a></p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black m-0"
+                                   asp-action="Mau" asp-controller="Home">Màu thực
+                                    phẩm</a></p>
+                        </div>
+                    </li>
+
+                    <li class="item">
+                        <p class="sub-btn m-0"><a class="text-decoration-none text-black"
+                               asp-action="NLSocola" asp-controller="Home">Nguyên liệu
+                                làm socola</a><i class="fas fa-angle-right dropdown"></i></p>
+                        <div class="sub-menu m-0">
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black"
+                                    asp-action="SocolaHat" asp-controller="Home">Socola
+                                    hạt</a></p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black m-0"
+                                   asp-action="SocolaThanh" asp-controller="Home">Socola
+                                    thanh</a></p>
+                            <p class="m-0 pb-0"><a class="sub-item text-decoration-none text-black m-0"
+                                    asp-action="SocolaTrangTri" asp-controller="Home">Nguyên
+                                    liệu trang trí
+                                    socola</a></p>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-9 col-sm-9 min-vh-100">
+                @foreach (var item in Model)
+        {
+             <div class="mt-5 list_card">
+                            <div class="title_list_card">
+                                <a  class="title_content">@item.Key</a>
+                                <div class="right_title">
+                                    <a class="text-decoration-none" >More</a>
+                                </div>
+                            </div>
+                            <div class="list_card_item">
+
+                                @foreach (var it in item.Value)
+                                {
+                                       
+                                    <!--NAM CODE CARD-->
+                                    <form method="post" action="ProductController" class="card_product">
+                                        <input type="hidden" name="product-id" value="@it.ProId"/>
+                                        <a href="/ProductController/DetailProduct/${p.pro_id}" class="card_img">
+                                            <img src="~/@it.ProImage" alt="">
+                                        </a>
+
+                                        <div class="card_content">
+                                            <div class="card_top">
+                                                <a href="#" class="card_title">@it.ProName</a>
+                                            </div>
+
+                                            <div class="card_infor">
+                                                <div class="card_price">
+                                                    @if(it.Discount ==0 ){
+                                                        <span class="discount"> @it.ProPrice </span>
+                                                    }
+                                                       
+                                                    
+                                                    @if(it.Discount !=0 ){
+                                                  
+                                                        <span class="discount">@it.Discount</span>
+                                                        <span class="real_price" style=" text-decoration: line-through;"> @it.ProPrice </span>    
+                                                  }
+
+                                                </div>
+                                                <button class="card_buy" type="submit" name="btnAddCart">
+                                                    <i class="fa-solid fa-cart-shopping"></i>
+                                                    <span>Thêm</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>    
+                                    <!--END NAM CODE-->
+                                
+                                }
+                            </div> 
+                        </div>
+                        
+                   }
+        </div>
+    </div>
+</div>
