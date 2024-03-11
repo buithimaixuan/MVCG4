@@ -26,14 +26,25 @@ namespace MVCG4
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ProjectPRNContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
             services.AddControllersWithViews();
-            // Thêm dịch vụ session
-            services.AddSession();
+            services.AddDistributedMemoryCache();
+            services.AddRazorPages();
 
-            // Thêm dịch vụ HttpContextAccessor
-            services.AddHttpContextAccessor();
-            
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
+
+
+            // // Thêm dịch vụ session
+            // services.AddSession();
+
+            // // Thêm dịch vụ HttpContextAccessor
+            // services.AddHttpContextAccessor();
+
 
 
         }
@@ -63,7 +74,7 @@ namespace MVCG4
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Login}/{action=Login}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

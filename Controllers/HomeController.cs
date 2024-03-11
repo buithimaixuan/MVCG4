@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MVCG4.Models;
@@ -14,7 +15,7 @@ namespace MVCG4.Controllers
         private readonly ProjectPRNContext _db;
         public HomeController(ProjectPRNContext db)
         {
-            this._db = db;
+            _db = db;
         }
 
         public IActionResult Index()
@@ -22,7 +23,7 @@ namespace MVCG4.Controllers
 
             Dictionary<string, IEnumerable<Product>> map = new Dictionary<string, IEnumerable<Product>>();
             IEnumerable<Product> list = null;
-            var distinctCategories = this._db.Categories.Select(x => x.CatName).Distinct().ToList();
+            var distinctCategories = _db.Categories.Select(x => x.CatName).Distinct().ToList();
             foreach (string s in distinctCategories)
             {
                 // Thực hiện truy vấn sử dụng Entity Framework
@@ -37,27 +38,9 @@ namespace MVCG4.Controllers
                 map.Add(s, list);
                 list = null;
             }
-            //         List<Category> cat = this._db.Categories
-            //  .GroupBy(x => x.CatName).AsEnumerable()
-            //  .Select(group => group.Max())
-            //  .ToList();
 
-
-            //         List<Category> cat = this._db.Categories.AsEnumerable().GroupBy(x => x.CatName)
-            // .Select(group => group.FirstOrDefault())
-            // .ToList();
-
-
-            // List<Category> cat = this._db.Categories.ToList();
-            // List<Product> pro = this._db.Products.ToList();
-            // var viewModel = new ShowCatPro
-            // {
-            //     cat = cat,
-            //     pro = pro
-            // };
-            
-            //test comment
-
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View(map);
         }
         public IActionResult IndexAll()
@@ -66,133 +49,184 @@ namespace MVCG4.Controllers
                         where p.IsDelete == 0
                         select p;
             IEnumerable<Product> list = query.ToList();
-
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View(list);
         }
 
         public IActionResult SNL()
         {
             Dictionary<string, IEnumerable<Product>> map = getProByTypeCat("Set nguyên liệu");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("Index", map);
         }
         public IActionResult BoKem()
         {
             Dictionary<string, IEnumerable<Product>> map = getProByTypeCat("Kem, Bơ, Sữa, Phô mai");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("Index", map);
         }
         public IActionResult Bot()
         {
             Dictionary<string, IEnumerable<Product>> map = getProByTypeCat("Bột làm bánh");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("Index", map);
         }
         public IActionResult PhuGia()
         {
             Dictionary<string, IEnumerable<Product>> map = getProByTypeCat("Phụ gia");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("Index", map);
         }
         public IActionResult NlSocola()
         {
             Dictionary<string, IEnumerable<Product>> map = getProByTypeCat("Nguyên liệu làm socola");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("Index", map);
         }
         public IActionResult SNLSinhNhat()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Set nguyên liệu bánh sinh nhật");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult SNLCookie()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Set nguyên liệu bánh cookie");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult SNLBanhMi()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Set nguyên liệu bánh mì");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult SNLAnvat()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Set nguyên liệu bánh ăn vặt");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult SNLSocola()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Set nguyên liệu làm socola");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult Bo()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Bơ");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult Kem()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Whipping(Cream)");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult PhoMai()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Phô mai(cheese)");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult Sua()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Sữa và sản phẩm làm từ sữa");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult BotMi()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Bột mì làm bánh");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult BotMiNC()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Bột mì nguyên cám");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult BotTron()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Bột trộn sẵn");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult BotKhac()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Bột làm bánh khác");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult Men()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Men nở và phụ gia nhỏ");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult Duong()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Đường các loại");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult Huong()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Hương liệu và tinh dầu");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult Mau()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Màu thực phẩm");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult SocolaHat()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Socola hạt");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult SocolaThanh()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Socola thanh");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
         public IActionResult SocolaTrangTri()
         {
             IEnumerable<Product> list = getAllProByTypeCat("Nguyên liệu trang trí socola");
+            string username = HttpContext.Session.GetString("Username");
+            ViewBag.getUsername = username;
             return View("IndexAll", list);
         }
 

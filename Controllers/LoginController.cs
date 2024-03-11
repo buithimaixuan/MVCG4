@@ -3,6 +3,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MVCG4.Models;
@@ -90,23 +91,27 @@ namespace MVCG4.Controllers
         public async Task<IActionResult> Login(Login login)
         {
             if (!ModelState.IsValid) return View();
-            
+
             var user = await _db.Accounts.SingleOrDefaultAsync(user =>
-                                    user.Username == login.Username && 
-                                    user.Password == Md5(login.Password) && 
+                                    user.Username == login.Username &&
+                                    user.Password == Md5(login.Password) &&
                                     user.IsDelete == 0);
 
             if (user == null) return View();
-
+            // Thiết lập session
+            HttpContext.Session.SetString("Username", login.Username);
+            
+            
             if (user.IsAdmin == 1)
             {
                 return RedirectToAction("Index", "Admin");
             }
-               
+
+            ViewBag.getUsername = login.Username;
             return RedirectToAction("Index", "Home");
         }
 
-        
+
         public static string Md5(string message)
         {
             using (MD5 md5 = MD5.Create())
