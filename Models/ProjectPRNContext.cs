@@ -18,8 +18,13 @@ namespace MVCG4.Models
         }
 
         public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<ImportProduct> ImportProducts { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Supplier> Suppliers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -84,6 +89,23 @@ namespace MVCG4.Models
                     .HasColumnName("username");
             });
 
+            modelBuilder.Entity<Cart>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("cart");
+
+                entity.Property(e => e.AccId).HasColumnName("acc_id");
+
+                entity.Property(e => e.CartPrice)
+                    .HasColumnType("decimal(10, 1)")
+                    .HasColumnName("cart_price");
+
+                entity.Property(e => e.ProId).HasColumnName("pro_id");
+
+                entity.Property(e => e.ProQuantity).HasColumnName("pro_quantity");
+            });
+
             modelBuilder.Entity<Category>(entity =>
             {
                 entity.HasNoKey();
@@ -108,6 +130,75 @@ namespace MVCG4.Models
                     .IsRequired()
                     .HasMaxLength(300)
                     .HasColumnName("typeCategories");
+            });
+
+            modelBuilder.Entity<ImportProduct>(entity =>
+            {
+                entity.HasKey(e => e.ImpId)
+                    .HasName("PK__ImportPr__7B89804500AC96D5");
+
+                entity.ToTable("ImportProduct");
+
+                entity.Property(e => e.ImpId).HasColumnName("imp_id");
+
+                entity.Property(e => e.CreateDate)
+                    .HasColumnType("date")
+                    .HasColumnName("create_date");
+
+                entity.Property(e => e.ProId).HasColumnName("pro_id");
+
+                entity.Property(e => e.Quantity).HasColumnName("quantity");
+
+                entity.Property(e => e.SupId).HasColumnName("sup_id");
+            });
+
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.HasKey(e => e.OId);
+
+                entity.ToTable("orders");
+
+                entity.Property(e => e.OId).HasColumnName("o_id");
+
+                entity.Property(e => e.Address)
+                    .IsRequired()
+                    .HasMaxLength(1000)
+                    .HasColumnName("address");
+
+                entity.Property(e => e.CusId).HasColumnName("cus_id");
+
+                entity.Property(e => e.IsDelete).HasColumnName("isDelete");
+
+                entity.Property(e => e.ODate)
+                    .HasColumnType("date")
+                    .HasColumnName("o_date");
+
+                entity.Property(e => e.Payment)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("payment");
+
+                entity.Property(e => e.Status)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .HasColumnName("status");
+
+                entity.Property(e => e.TotalPrice)
+                    .HasColumnType("decimal(10, 1)")
+                    .HasColumnName("total_price");
+            });
+
+            modelBuilder.Entity<OrderDetail>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("order_detail");
+
+                entity.Property(e => e.OId).HasColumnName("o_id");
+
+                entity.Property(e => e.ProId).HasColumnName("pro_id");
+
+                entity.Property(e => e.Quantity).HasColumnName("quantity");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -161,6 +252,40 @@ namespace MVCG4.Models
                     .HasColumnName("pro_price");
 
                 entity.Property(e => e.ProQuantity).HasColumnName("pro_quantity");
+            });
+
+            modelBuilder.Entity<Supplier>(entity =>
+            {
+                entity.HasKey(e => e.SupId)
+                    .HasName("PK__supplier__FB8F785F8607E530");
+
+                entity.ToTable("supplier");
+
+                entity.Property(e => e.SupId).HasColumnName("sup_id");
+
+                entity.Property(e => e.Address)
+                    .IsRequired()
+                    .HasMaxLength(1000)
+                    .HasColumnName("address");
+
+                entity.Property(e => e.CompanyName)
+                    .IsRequired()
+                    .HasMaxLength(200)
+                    .HasColumnName("company_name");
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("email");
+
+                entity.Property(e => e.PhoneNumber)
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("phone_number");
+
+                entity.Property(e => e.ProId).HasColumnName("pro_id");
             });
 
             OnModelCreatingPartial(modelBuilder);

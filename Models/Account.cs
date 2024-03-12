@@ -30,4 +30,3 @@ namespace MVCG4.Models
         public int IsDelete { get; set; }
     }
 }
-

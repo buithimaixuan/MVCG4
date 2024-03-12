@@ -8,7 +8,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="664acd9c-0c31-4d37-9216-3a02b43149b7" name="Changes" comment="" />
+    <list default="true" id="664acd9c-0c31-4d37-9216-3a02b43149b7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MVCG4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MVCG4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/MVCG4.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/MVCG4.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/MVCG4.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/MVCG4.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/MVCG4.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/MVCG4.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/MVCG4.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/MVCG4.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/MVCG4.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/MVCG4.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.RazorTargetAssemblyInfo.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.RazorTargetAssemblyInfo.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.RazorTargetAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.RazorTargetAssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/MVCG4.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Views/Home/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Views/Home/Index.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/ref/MVCG4.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/ref/MVCG4.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/refint/MVCG4.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/refint/MVCG4.dll" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,7 +170,7 @@
       <workItem from="1709979417606" duration="164000" />
       <workItem from="1709979615302" duration="4595000" />
       <workItem from="1709994233397" duration="4293000" />
-      <workItem from="1710168738329" duration="2424000" />
+      <workItem from="1710168738329" duration="3480000" />
     </task>
     <servers />
   </component>

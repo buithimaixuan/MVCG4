@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MVCG4")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0ab5de6fdcd9c164a0231b498d229eb06f26c70")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4d833a8a944a7960205aee57ff51588b1463472")]
 [assembly: System.Reflection.AssemblyProductAttribute("MVCG4")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MVCG4")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
