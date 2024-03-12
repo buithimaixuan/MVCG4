@@ -42,28 +42,28 @@
                     <a href="/AdminController/adminListSupplier"><i class="fa-solid fa-layer-group"></i>List
                         supplier</a>
                 </li>
-                <li>
+                @* <li>
                     <a href="/AdminController/adminListProHistory"><i class="fa-solid fa-layer-group"></i>Product
                         history</a>
-                </li>
+                </li> *@
 
                 <li>
                     <a href="/AdminController/adminListOrder"><i class="fa-solid fa-cart-shopping"></i>Order manage</a>
                 </li>
 
-                <li>
+                @* <li>
                     <a href="/AdminController/adminListOrderHistory"><i class="fa-solid fa-cart-shopping"></i>Order
                         history</a>
-                </li>
+                </li> *@
                 
                 <li>
-                    <a href="/AdminController/adminListCustomer"><i class="fa-solid fa-clipboard-user"></i>Customer
-                        manage</a>
+                    <a asp-action="" asp-controller=""><i class="fa-solid fa-clipboard-user"></i>Account manage
+                        </a>
                 </li>
 
             </ul>
             <div class="bot_sidebar">
-                <a class="btn_logout" href="/LogoutController"><i class="fa-solid fa-right-from-bracket"></i>Log out</a>
+                <a asp-action="Logout" asp-controller="Logout"><i class="fa-solid fa-right-from-bracket"></i>Log out</a>
             </div>
         </div>
     </div>
