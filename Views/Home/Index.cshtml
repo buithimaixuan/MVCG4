@@ -144,8 +144,8 @@
                                 {
                                        
                                     <!--NAM CODE CARD-->
-                                    <form method="post" action="ProductController" class="card_product">
-                                        <input type="hidden" name="product-id" value="@it.ProId"/>
+                                    <form method="post" asp-controller="Cart" asp-action="AddToCart" class="card_product">
+                                        <input type="hidden" name="product_ID" value="@it.ProId"/>
                                         <a href="/ProductController/DetailProduct/${p.pro_id}" class="card_img">
                                             <img src="~/@it.ProImage" alt="">
                                         </a>
@@ -169,7 +169,7 @@
                                                   }
 
                                                 </div>
-                                                <button class="card_buy" type="submit" name="btnAddCart">
+                                                <button class="card_buy" type="submit">
                                                     <i class="fa-solid fa-cart-shopping"></i>
                                                     <span>Thêm</span>
                                                 </button>

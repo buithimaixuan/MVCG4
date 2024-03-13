@@ -7,7 +7,9 @@ namespace MVCG4.Models
 {
     public partial class Cart
     {
-        public int AccId { get; set; }
+        public Cart(){
+        }
+        public int? AccId { get; set; }
         public int ProId { get; set; }
         public int ProQuantity { get; set; }
         public decimal CartPrice { get; set; }

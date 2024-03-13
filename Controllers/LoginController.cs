@@ -100,8 +100,8 @@ namespace MVCG4.Controllers
             if (user == null) return View();
             // Thiết lập session
             HttpContext.Session.SetString("Username", login.Username);
-            
-            
+            HttpContext.Session.SetInt32("AccountID", user.AccId);
+             
             if (user.IsAdmin == 1)
             {
                 return RedirectToAction("Index", "Admin");

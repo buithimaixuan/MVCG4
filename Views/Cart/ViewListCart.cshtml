@@ -1,0 +1,171 @@
+@model MultiModels
+@{
+    ViewData["Title"] = "ViewListCart";
+    Layout = "~/Views/Shared/_HomePage.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/1bd9fa3a2e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/cart.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid mt-3">
+    <form class="container-fluid" asp-action="BuyInCart" method="post" onsubmit="return validateCheckBox();">
+
+        <div class="cart_title">Giỏ hàng</div>
+
+        <div class="cart_body">
+
+            <div class="left_cart">
+                @if (!Model.cartList.Any())
+                {
+                    <h3 class="noti_null">Chưa có sản phẩm trong giỏ hàng</h3>
+                }
+                else
+                {
+                    <div class="list_cart">
+                        @foreach (var item in Model.cartList)
+                        {
+                            var getPro = Model.productList.SingleOrDefault(p => p.ProId == item.ProId);
+
+                            <!-- CART -->
+                            <div class="cart">
+                                <div class="top_cart">
+                                    <!-- CHECKBOX GROUP -->
+                                    <div class="checkbox-wrapper-21 group_checkbox">
+                                        @if (item.ProQuantity <= getPro.ProQuantity)
+                                        {
+
+                                            <label class="control control--checkbox">
+                                                Chọn
+                                                <input type="checkbox" value="@item.ProId" name="checkBoxID"
+                                                    class="chooseCheckBoxID" onclick="getCheckBox(this)" />
+                                                <input type="hidden" value="@item.CartPrice">
+                                                <div class="control__indicator"></div>
+                                            </label>
+                                        }
+                                        else
+                                        {
+                                            <p>Không đủ hàng tồn kho</p>
+                                        }
+                                    </div>
+                                    <!-- END CHECKBOX GROUP -->
+
+                                    <div class="mid_top_cart">
+                                        <div class="img_cart">
+                                            <img src="~/@getPro.ProImage" alt="image">
+                                        </div>
+                                        <div class="infor_cart">
+                                            <p>
+                                                @getPro.ProName
+                                            </p>
+                                            <p class="price_cart">Don gia:
+
+                                                @if (getPro.Discount < getPro.ProPrice)
+                                                {
+                                                    <span>@getPro.Discount</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@getPro.ProPrice</span>
+                                                }
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right_top_cart">
+                                        <div class="group_quantity">
+                                            <div class="control_quantity">
+                                                <a name="decrease_quan" asp-action="DescreaseCart" asp-route-caid="@item.ProId"
+                                                    onclick="this.parentNode.parentNode.querySelector('input[type=number]').stepDown();"><i
+                                                        class="fa-solid fa-minus"></i></a>
+                                            </div>
+                                            <input type="number" name="quantity"
+                                                class="quantity proQuantity form-control text-center" value="@item.ProQuantity"
+                                                min="1" max="<%= pro.getPro_quantity()%>" />
+                                            <div class="control_quantity">
+                                                <a name="increase_quan" asp-action="IncreaseCart" asp-route-caid="@item.ProId"
+                                                    onclick="this.parentNode.parentNode.querySelector('input[type=number]').stepUp();"><i
+                                                        class="fa-solid fa-plus"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bot_cart">
+                                    <a class="deleteCart" onclick="return confirm('Do you want to delete this cart?')"
+                                        asp-action="DeleteCart" asp-route-caid="@item.ProId">Xóa</a>
+                                    <p style="font-weight: 700;">Thành tiền: <span
+                                            style="font-weight: 500;">@item.CartPrice</span></p>
+                                </div>
+                            </div>
+                            <!-- END CART -->
+
+                        }
+                    </div>
+
+                    <!--END LIST CART-->
+                }
+            </div>
+
+            <div class="right_cart">
+                <h3 class="title_right" style="font-weight: 700">Thông tin đơn hàng</h3>
+                <div class="total">
+                    <div class="total_price">
+                        <p>Tổng tiền: <span id="total-price">0</span></p>
+                    </div>
+                    @if (Model.cartList.Any())
+                    {
+                        <div class="pay">
+                            <input type="submit" value="Tiến hành đặt hàng" name="btnBuyInCart" />
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+<script>
+    var toltalPrice = 0;
+    function getCheckBox(obj) {
+        console.log(obj.checked);
+        if (obj.checked === true) {
+            toltalPrice += parseFloat(obj.nextElementSibling.value);
+        } else if (obj.checked === false) {
+            toltalPrice -= parseFloat(obj.nextElementSibling.value);
+        }
+        var displayTotal = document.querySelector("#total-price");
+        displayTotal.innerHTML = toltalPrice;
+    }
+
+    function validateCheckBox() {
+        var checkboxes = document.querySelectorAll(".chooseCheckBoxID");
+        let atLeastOneChecked = false;
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                atLeastOneChecked = true;
+                break;
+            }
+        }
+
+        if (!atLeastOneChecked) {
+            alert("You must select at least one checkbox.");
+            atLeastOneChecked = false;
+        }
+
+        return atLeastOneChecked;
+    }
+</script>
+</body>
+</html>

@@ -31,7 +31,7 @@ namespace MVCG4.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-EV8RQ78\\SQLEXPRESS;Database=ProjectPRN;uid=sa;pwd=123456;encrypt=true;trustServerCertificate=true;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-5B3AKMH\\SQLEXPRESS;Database=ProjectPRN;uid=sa;pwd=khoa31102003;encrypt=true;trustServerCertificate=true;");
             }
         }
 
@@ -42,17 +42,17 @@ namespace MVCG4.Models
             modelBuilder.Entity<Account>(entity =>
             {
                 entity.HasKey(e => e.AccId)
-                    .HasName("PK__account__9A20D554344D621F");
+                    .HasName("PK__account__9A20D55461D5AB34");
 
                 entity.ToTable("account");
 
-                entity.HasIndex(e => e.PhoneNumber, "UQ__account__A1936A6BCC79D6D1")
+                entity.HasIndex(e => e.PhoneNumber, "UQ__account__A1936A6B71B06CF3")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Email, "UQ__account__AB6E61646705F08B")
+                entity.HasIndex(e => e.Email, "UQ__account__AB6E616480E3A749")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Username, "UQ__account__F3DBC5727CAFDA73")
+                entity.HasIndex(e => e.Username, "UQ__account__F3DBC5721D0BA3F4")
                     .IsUnique();
 
                 entity.Property(e => e.AccId).HasColumnName("acc_id");
@@ -91,17 +91,17 @@ namespace MVCG4.Models
 
             modelBuilder.Entity<Cart>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.AccId, e.ProId });
 
                 entity.ToTable("cart");
 
                 entity.Property(e => e.AccId).HasColumnName("acc_id");
 
+                entity.Property(e => e.ProId).HasColumnName("pro_id");
+
                 entity.Property(e => e.CartPrice)
                     .HasColumnType("decimal(10, 1)")
                     .HasColumnName("cart_price");
-
-                entity.Property(e => e.ProId).HasColumnName("pro_id");
 
                 entity.Property(e => e.ProQuantity).HasColumnName("pro_quantity");
             });
@@ -135,7 +135,7 @@ namespace MVCG4.Models
             modelBuilder.Entity<ImportProduct>(entity =>
             {
                 entity.HasKey(e => e.ImpId)
-                    .HasName("PK__ImportPr__7B89804500AC96D5");
+                    .HasName("PK__ImportPr__7B898045D929B4B8");
 
                 entity.ToTable("ImportProduct");
 
@@ -154,7 +154,8 @@ namespace MVCG4.Models
 
             modelBuilder.Entity<Order>(entity =>
             {
-                entity.HasKey(e => e.OId);
+                entity.HasKey(e => e.OId)
+                    .HasName("PK__orders__904BC20E9CAF2DA0");
 
                 entity.ToTable("orders");
 
@@ -190,7 +191,7 @@ namespace MVCG4.Models
 
             modelBuilder.Entity<OrderDetail>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.OId, e.ProId });
 
                 entity.ToTable("order_detail");
 
@@ -204,7 +205,7 @@ namespace MVCG4.Models
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.HasKey(e => e.ProId)
-                    .HasName("PK__product__335E4CA613EC701F");
+                    .HasName("PK__product__335E4CA698CA8A36");
 
                 entity.ToTable("product");
 
@@ -257,7 +258,7 @@ namespace MVCG4.Models
             modelBuilder.Entity<Supplier>(entity =>
             {
                 entity.HasKey(e => e.SupId)
-                    .HasName("PK__supplier__FB8F785F8607E530");
+                    .HasName("PK__supplier__FB8F785F46C69712");
 
                 entity.ToTable("supplier");
 

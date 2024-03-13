@@ -8,9 +8,10 @@ namespace MVCG4.Controllers
         // GET
         public IActionResult Logout()
         {
-            HttpContext.Session.SetString("Username", "");
+            // HttpContext.Session.SetString("Username", "");
+            HttpContext.Session.Clear();
             string username = HttpContext.Session.GetString("Username");
-            ViewBag.getUsername = username;
+            ViewBag.getUsername = "username";
             return RedirectToAction("Index", "Home");
 
         }

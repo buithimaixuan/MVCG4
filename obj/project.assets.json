@@ -7658,19 +7658,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dell\\.nuget\\packages\\": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learning\\KY05\\PRN211\\Group4PRN\\MVCG4\\MVCG4.csproj",
+      "projectUniqueName": "D:\\UniDocument\\Semester 5\\PRN211\\Code ASP MVC\\Project_PRN\\ProjectG4\\MVCG4\\MVCG4.csproj",
       "projectName": "MVCG4",
-      "projectPath": "D:\\Learning\\KY05\\PRN211\\Group4PRN\\MVCG4\\MVCG4.csproj",
-      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "D:\\Learning\\KY05\\PRN211\\Group4PRN\\MVCG4\\obj\\",
+      "projectPath": "D:\\UniDocument\\Semester 5\\PRN211\\Code ASP MVC\\Project_PRN\\ProjectG4\\MVCG4\\MVCG4.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "D:\\UniDocument\\Semester 5\\PRN211\\Code ASP MVC\\Project_PRN\\ProjectG4\\MVCG4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7690,6 +7690,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -7744,7 +7749,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
