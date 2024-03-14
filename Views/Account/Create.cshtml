@@ -1,0 +1,96 @@
+@model MVCG4.Models.Account
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
+}
+<style>
+    a {
+        color: #3e3e3e;
+        text-decoration: none;
+    }
+
+    .hidden-password {
+        -webkit-text-security: disc;
+        -moz-text-security: disc;
+        text-security: disc;
+    }
+</style>
+<h1>Create New Account</h1>
+
+<form asp-action="Create" method="post" class="border border-2 rounded-4 p-4 pt-2" style="margin: 0px 30px"
+    enctype="multipart/form-data">
+    <div class="text-center mb-3">
+        <span class="h3 fw-bold">Thêm mới khách hàng</span>
+    </div>
+    <div class="form-group w-100">
+        <div class="form-hover">
+            <input hidden value="0" asp-for="AccId" id="AccId" name="AccId" class="form-control form-control-lg" />
+        </div>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" asp-for="Username" id="Username" name="Username" placeholder="Username"
+                class="form-control form-control-lg" />
+            <label for="fullname" class="form-label" asp-for="Username"></label>
+        </div>
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" asp-for="Password" id="Password" name="Password" placeholder="Password"
+                class="form-control form-control-lg hidden-password" />
+            <label for="Password" class="form-label" asp-for="Password"></label>
+        </div>
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" asp-for="Fullname" id="Fullname" name="Fullname" placeholder="Fullname"
+                class="form-control form-control-lg" />
+            <label for="Fullname" class="form-label" asp-for="Fullname"></label>
+        </div>
+        <span asp-validation-for="Fullname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" asp-for="PhoneNumber" id="PhoneNumber" name="PhoneNumber" placeholder="PhoneNumber"
+                class="form-control form-control-lg" />
+            <label for="PhoneNumber" class="form-label" asp-for="PhoneNumber"></label>
+        </div>
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" asp-for="Email" id="Email" name="Email" placeholder="Email"
+                class="form-control form-control-lg" />
+            <label for="Email" class="form-label" asp-for="Email"></label>
+        </div>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100">
+        <div class="form-hover">
+            <input hidden value="0" asp-for="IsAdmin" id="IsAdmin" name="IsAdmin"
+                class="form-control form-control-lg" />
+        </div>
+    </div>
+    <div class="form-group w-100">
+        <div class="form-hover">
+            <input hidden value="0" asp-for="IsDelete" id="IsDelete" name="IsDelete"
+                class="form-control form-control-lg" />
+        </div>
+    </div>
+
+
+
+    <span class="error text-danger fw-bold font-italic text-center"></span>
+    <div class="form-outline mb-3 mt-4">
+        <input type="submit" class="btn btn-warning w-100" style="font-size: 20px" value="Create Customer" />
+    </div>
+</form>

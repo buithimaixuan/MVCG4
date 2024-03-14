@@ -1,0 +1,44 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Feb 16, 2024, 8:50:57 AM
+    Author     : HP
+*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.form-group {
+    position: relative;
+}
+
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+    color: transparent;
+}
+
+.form-group .form-label {
+    position: absolute;
+    top: 9px;
+    left: 7px;
+    font-size: 14px;
+    padding: 0 10px;
+    color: #acacac;
+    pointer-events: none;
+    transition: 0.15s all ease;
+}
+
+.form-group input:focus+.form-label,
+.form-group input:not(:placeholder-shown)+.form-label,
+.form-group textarea:focus+.form-label,
+.form-group textarea:not(:placeholder-shown)+.form-label{
+    transform: translate(5px, -22px);
+    background-color: white;
+    font-size: 12px;
+    color: black;
+}

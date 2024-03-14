@@ -100,11 +100,11 @@ namespace MVCG4.Controllers
             if (user == null) return View();
             // Thiết lập session
             HttpContext.Session.SetString("Username", login.Username);
-            
-            
+
+
             if (user.IsAdmin == 1)
             {
-                return RedirectToAction("Index", "Admin");
+                return RedirectToAction("CountAccounts", "Admin");
             }
 
             ViewBag.getUsername = login.Username;

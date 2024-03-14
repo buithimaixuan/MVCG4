@@ -1,4 +1,4 @@
-@model IEnumerable<Account>
+@model IEnumerable<Product>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminPage.cshtml";
@@ -29,53 +29,48 @@
     .kh-tab {
         width: 10%;
     }
-
-    .hidden-password {
-        -webkit-text-security: disc;
-        -moz-text-security: disc;
-        text-security: disc;
-    }
 </style>
 <div style="flex: 1; position: absolute;top: 0;">
-    <h1 class="m-2">Quản lý khách hàng</h1>
+    <h1 class="m-2">Quản lý sản phẩm</h1>
     <div class="mx-2 ms-1 border border-2 p-2 m-2">
         <p class="btn btn-warning m-2" style="width: 200px;">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Create">Create Account</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Create">Create Product</a>
         </p>
         <table id="example" class="table table-responsive" style="width:100%">
             <thead>
                 <tr>
-                    <th class="text-start kh-tab">Tên đăng nhập</th>
-                    @* <th class="text-start username-tab">Mật khẩu</th> *@
-                    <th class="text-start">Họ và tên</th>
-                    <th class="text-start">SĐT</th>
-                    <th class="text-start">Email</th>
+                    <th class="text-start kh-tab">Product Id</th>
+                    <th class="text-start username-tab">Product Name</th>
+                    <th class="text-start">Product Image</th>
+                    <th class="text-start">ProQuantity</th>
+                    <th class="text-start">CreateDate</th>
                     <th class="text-start"></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
-                { @if (item.IsDelete != 1 && item.IsAdmin != 1)
+             
+                    @foreach (var item in Model)
                     {
+   @if (item.IsDelete != 1)
+                {
                         <tr>
-                            <td class="text-start align-middle kh-tab">@item.Username</td>
-                            @* <td class="text-start align-middle username-tab hidden-password">@item.Password</td> *@
-                            <td class="text-start align-middle">@item.Fullname</td>
-                            <td class="text-start align-middle">@item.PhoneNumber</td>
-                            <td class="text-start align-middle">@item.Email</td>
+                            <td class="text-start align-middle kh-tab">@item.ProId</td>
+                            <td class="text-start align-middle username-tab">@item.ProName</td>
+                            <td class="text-start">@item.ProImage</td>
+                            <td class="text-start align-middle">@item.ProQuantity</td>
+                            <td class="text-start align-middle">@item.CreateDate</td>
                             <td class="text-start">
-                                <a asp-action="Delete" asp-route-id="@item.AccId" class="btn btn-danger">Delete</a>
+                                <a asp-action="Delete" asp-route-id="@item.ProId"  class="btn btn-danger">Delete</a>
+                                <a asp-action="Edit" asp-route-id="@item.ProId"  class="btn btn-warning">Edit</a>
 
                         </tr>
-                    }
-                }
+}
+  }
+                    </tbody>
 
-            </tbody>
-
-        </table>
-    </div>
-</div>
-
+                </table>
+            </div>
+        </div>
 
 
 
@@ -84,7 +79,8 @@
 
 
 
-@* <button>
+
+                        @* <button>
 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Create">Create Account</a>
 </button>
 <table>
