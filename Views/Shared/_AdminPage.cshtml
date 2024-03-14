@@ -22,7 +22,7 @@
         <div class="sidebar">
             <div class="header_sidebar">
                 <div class="logo">
-                    <a href="/ChartController/Chart">
+                    <a asp-action="CountAccounts" asp-controller="Admin">
                         <img src="/images/Lovecake.png" alt="">
                     </a>
                 </div>
@@ -61,12 +61,16 @@
                 </li> *@
 
                 <li>
-
                     <a asp-action="Index" asp-controller="Account"><i class="fa-solid fa-clipboard-user"></i>Account
                         manage
                     </a>
                 </li>
 
+                <li>
+                    <a asp-action="CountAccounts" asp-controller="Statis"><i
+                            class="fa-solid fa-clipboard-user"></i>Thong ke
+                    </a>
+                </li>
             </ul>
             <div class="bot_sidebar">
                 <a asp-action="Logout" asp-controller="Logout"><i class="fa-solid fa-right-from-bracket"></i>Log out</a>

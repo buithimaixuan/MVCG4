@@ -330,3 +330,4 @@ D:\SP24_______\PRN221_HuongLH\FinalProject\final1\MVCG4\obj\Debug\net5.0\Razor\V
 D:\SP24_______\PRN221_HuongLH\FinalProject\final1\MVCG4\obj\Debug\net5.0\Razor\Views\Product\Edit.cshtml.g.cs
 D:\SP24_______\PRN221_HuongLH\FinalProject\final1\MVCG4\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
 D:\SP24_______\PRN221_HuongLH\FinalProject\final1\MVCG4\obj\Debug\net5.0\Razor\Views\Product\Create.cshtml.g.cs
+D:\SP24_______\PRN221_HuongLH\FinalProject\final1\MVCG4\obj\Debug\net5.0\Razor\Views\Admin\CountAccounts.cshtml.g.cs
