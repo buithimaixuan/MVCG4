@@ -1,0 +1,121 @@
+@model MVCG4.Models.Product
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
+}
+
+<style>
+    a {
+        color: #3e3e3e;
+        text-decoration: none;
+    }
+</style>
+<hr>
+
+<form method="post" asp-action="Edit" class="border border-2 rounded-4 p-4 pt-2" style="margin: 50px 30px">
+    <div class="text-center mb-3">
+        <span class="h3 fw-bold">Chỉnh sửa sản phẩm</span>
+    </div>
+
+    <div class="form-group w-100">
+        <div class="form-hover">
+            <input hidden asp-for="ProId"> <span asp-validation-for="ProId" class="text-danger"></span>
+        </div>
+        <span class="errorFullname text-danger fw-bold font-italic"></span>
+    </div>
+    <div class="form-group w-100">
+        <div class="form-hover">
+            <input hidden asp-for="CatId"> <span asp-validation-for="CatId" class="text-danger"></span>
+        </div>
+        <span class="errorFullname text-danger fw-bold font-italic"></span>
+    </div>
+
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" id="ProName" name="ProName" class="form-control form-control-lg" asp-for="ProName" />
+            <label asp-for="ProName" class="form-label">ProName</label>
+        </div>
+    </div>
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" id="ProImage" name="ProImage" class="form-control form-control-lg" asp-for="ProImage" />
+            <label asp-for="ProImage" class="form-label">Product Image</label>
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" id="Origin" name="Origin" class="form-control form-control-lg" asp-for="Origin" />
+            <label asp-for="Origin" class="form-label">Origin</label>
+        </div>
+    </div>
+
+
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" id="Brand" name="Brand" class="form-control form-control-lg" asp-for="Brand" />
+            <label asp-for="Brand" class="form-label">Brand</label>
+        </div>
+    </div>
+
+
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" id="ProQuantity" name="ProQuantity" class="form-control form-control-lg"
+                asp-for="ProQuantity" />
+            <label asp-for="ProQuantity" class="form-label">Quantity</label>
+        </div>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" id="ProPrice" name="ProPrice" class="form-control form-control-lg" asp-for="ProPrice" />
+            <label asp-for="ProPrice" class="form-label">Price</label>
+        </div>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" id="Discount" name="Discount" class="form-control form-control-lg" asp-for="Discount" />
+            <label asp-for="Discount" class="form-label">Discount</label>
+        </div>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" id="ProDescription" name="ProDescription" class="form-control form-control-lg"
+                asp-for="ProDescription" />
+            <label asp-for="ProDescription" class="form-label">Description</label>
+        </div>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="date" id="CreateDate" name="CreateDate" class="form-control form-control-lg"
+                asp-for="CreateDate" />
+            <label asp-for="CreateDate" class="form-label">Create Date</label>
+        </div>
+    </div>
+
+
+
+    <div class="form-group w-100">
+        <div class="form-hover">
+            <input hidden asp-for="IsDelete"> <span asp-validation-for="IsDelete" class="text-danger"></span>
+        </div>
+    </div>
+
+
+
+    <span class="error text-danger fw-bold font-italic text-center"></span>
+
+    <div class="form-outline mb-3 mt-4">
+        <input type="submit" value="Edit" name="btnDeleteCus" class="btn btn-warning w-100" style="font-size: 20px" />
+    </div>
+</form>

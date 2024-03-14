@@ -1,0 +1,155 @@
+@model MVCG4.Models.Account
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
+}
+
+<style>
+    .hidden-password {
+        -webkit-text-security: disc;
+        -moz-text-security: disc;
+        text-security: disc;
+    }
+
+    a {
+        color: #3e3e3e;
+        text-decoration: none;
+    }
+</style>
+
+
+<hr>
+
+
+
+<form method="post" asp-action="Delete" class="border border-2 rounded-4 p-4 pt-2" style="margin: 50px 30px">
+    <div class="text-center mb-3">
+        <span class="h3 fw-bold">Xóa khách hàng</span>
+    </div>
+
+    <div class="form-group w-100">
+        <div class="form-hover">
+            <input hidden readonly asp-for="AccId"> <span asp-validation-for="AccId" class="text-danger"></span>
+        </div>
+        <span class="errorFullname text-danger fw-bold font-italic"></span>
+    </div>
+
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" id="Username" name="Username" class="form-control form-control-lg" asp-for="Username"
+                readonly />
+            <label asp-for="Username" class="form-label">Username</label>
+        </div>
+    </div>
+
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" id="Password" name="Password" class="form-control form-control-lg hidden-password"
+                asp-for="Password" readonly />
+            <label asp-for="Password" class="form-label">Password</label>
+        </div>
+    </div>
+
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" id="Fullname" name="Fullname" class="form-control form-control-lg" asp-for="Fullname"
+                readonly />
+            <label asp-for="Fullname" class="form-label">Fullname</label>
+        </div>
+    </div>
+
+
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" id="PhoneNumber" name="PhoneNumber" class="form-control form-control-lg"
+                asp-for="PhoneNumber" readonly />
+            <label asp-for="PhoneNumber" class="form-label">PhoneNumber</label>
+        </div>
+    </div>
+
+
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" id="Email" name="Email" class="form-control form-control-lg" asp-for="Email" readonly />
+            <label asp-for="Email" class="form-label">Email</label>
+        </div>
+    </div>
+
+
+    <div class="form-group w-100">
+        <div class="form-hover">
+            <input hidden readonly asp-for="IsAdmin"> <span asp-validation-for="IsAdmin" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group w-100">
+        <div class="form-hover">
+            <input hidden readonly asp-for="IsDelete"> <span asp-validation-for="IsDelete" class="text-danger"></span>
+        </div>
+    </div>
+
+
+
+    <span class="error text-danger fw-bold font-italic text-center"></span>
+
+    <div class="form-outline mb-3 mt-4">
+        <input type="submit" value="Delete" name="btnDeleteCus" class="btn btn-warning w-100" style="font-size: 20px" />
+    </div>
+</form>
+
+
+
+
+
+
+
+
+@*
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-6">
+<form asp-action="Delete" method="post">
+<div class="form-group w-100 mt-4">
+<label asp-for="AccId"></label> : <input readonly asp-for="AccId"> <span asp-validation-for="AccId"
+class="text-danger"></span>
+</div>
+<br>
+<div class="form-group w-100 mt-4">
+<label asp-for="Username"></label>:<input readonly asp-for="Username"> <span
+asp-validation-for="Username" class="text-danger"></span>
+</div>
+<br>
+<div class="form-group w-100 mt-4">
+<label asp-for="Password"></label>:<input readonly asp-for="Password"> <span
+asp-validation-for="Password" class="text-danger"></span>
+
+</div>
+<br>
+<div class="form-group w-100 mt-4">
+<label asp-for="Fullname"></label>:<input readonly asp-for="Fullname">
+<span asp-validation-for="Fullname" class="text-danger"></span>
+</div>
+<br>
+<div class="form-group w-100 mt-4">
+<label asp-for="PhoneNumber"></label>:<input readonly asp-for="PhoneNumber">
+<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+</div>
+<br>
+<div class="form-group w-100 mt-4">
+<label asp-for="Email"></label>:<input readonly asp-for="Email">
+<span asp-validation-for="Email" class="text-danger"></span>
+</div>
+<br>
+<div class="form-outline mb-3 mt-4">
+<input type="submit" value="Delete" class="btn btn-outline-success">
+<input type="reset" class="btn btn-outline-danger">
+<a asp-action="Index" class="btn btn-outline-primary">Back to list</a>
+</div>
+</form>
+</div>
+</div>
+</div> *@

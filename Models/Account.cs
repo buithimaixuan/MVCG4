@@ -21,10 +21,19 @@ namespace MVCG4.Models
         [Required]
         public string Fullname { get; set; }
         [Required]
+        // [Phone(ErrorMessage = "Invalid phone!!!")]
+
+
+
+        private const string PhoneNumberRegexPattern = @"^0\d{9}$";
+
+        // [Required(ErrorMessage = "Phone number is required")]
+        [RegularExpression(PhoneNumberRegexPattern, ErrorMessage = "Invalid Vietnam phone number.")]
         public string PhoneNumber { get; set; }
+
         [Required]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress]
+        // [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Invalid email!!!")]
         public string Email { get; set; }
         public int IsAdmin { get; set; }
         public int IsDelete { get; set; }

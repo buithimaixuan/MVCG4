@@ -1,0 +1,126 @@
+@model MVCG4.Models.Product
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
+}
+
+<form asp-action="Create" method="post" class="border border-2 rounded-4 p-4 pt-2" style="margin: 0px 30px"
+    enctype="multipart/form-data">
+    <div class="text-center mb-3">
+        <span class="h3 fw-bold">Thêm mới sản phẩm</span>
+    </div>
+    <div class="form-group w-100">
+        <div class="form-hover">
+            <input hidden value="0" asp-for="ProId" id="ProId" name="ProId" class="form-control form-control-lg" />
+        </div>
+    </div>
+    <div class="form-group w-100">
+        <div class="form-hover">
+            <input hidden value="0" asp-for="CatId" id="CatId" name="CatId" class="form-control form-control-lg" />
+        </div>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" asp-for="ProName" id="ProName" name="ProName" placeholder="ProName"
+                class="form-control form-control-lg" />
+            <label for="ProName" class="form-label" asp-for="ProName"></label>
+        </div>
+        <span asp-validation-for="ProName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" asp-for="ProImage" id="ProImage" name="ProImage" placeholder="ProImage"
+                class="form-control form-control-lg" />
+            <label for="ProImage" class="form-label" asp-for="ProImage"></label>
+        </div>
+        <span asp-validation-for="ProImage" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" asp-for="Origin" id="Origin" name="Origin" placeholder="Origin"
+                class="form-control form-control-lg" />
+            <label for="Origin" class="form-label" asp-for="Origin"></label>
+        </div>
+        <span asp-validation-for="Origin" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" asp-for="Brand" id="Brand" name="Brand" placeholder="Brand"
+                class="form-control form-control-lg" />
+            <label for="Brand" class="form-label" asp-for="Brand"></label>
+        </div>
+        <span asp-validation-for="Brand" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="number" asp-for="ProQuantity" id="ProQuantity" name="ProQuantity" placeholder="ProQuantity"
+                class="form-control form-control-lg" />
+            <label for="ProQuantity" class="form-label" asp-for="ProQuantity"></label>
+        </div>
+        <span asp-validation-for="ProQuantity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="number" asp-for="ProPrice" id="ProPrice" name="ProPrice" placeholder="ProPrice"
+                class="form-control form-control-lg" />
+            <label for="ProPrice" class="form-label" asp-for="ProPrice"></label>
+        </div>
+        <span asp-validation-for="ProPrice" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="number" asp-for="Discount" id="Discount" name="Discount" placeholder="Discount"
+                class="form-control form-control-lg" />
+            <label for="Discount" class="form-label" asp-for="Discount"></label>
+        </div>
+        <span asp-validation-for="Discount" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="text" asp-for="ProDescription" id="ProDescription" name="ProDescription"
+                placeholder="ProDescription" class="form-control form-control-lg" />
+            <label for="ProDescription" class="form-label" asp-for="ProDescription"></label>
+        </div>
+        <span asp-validation-for="ProDescription" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100 mt-4">
+        <div class="form-hover">
+            <input type="date" asp-for="CreateDate" id="CreateDate" name="CreateDate" placeholder="CreateDate"
+                class="form-control form-control-lg" />
+            <label for="CreateDate" class="form-label" asp-for="CreateDate"></label>
+        </div>
+        <span asp-validation-for="CreateDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group w-100">
+        <div class="form-hover">
+            <input hidden value="0" asp-for="IsDelete" id="IsDelete" name="IsDelete"
+                class="form-control form-control-lg" />
+        </div>
+    </div>
+
+
+
+
+    <span class="error text-danger fw-bold font-italic text-center"></span>
+    <div class="form-outline mb-3 mt-4">
+        <input type="submit" class="btn btn-warning w-100" style="font-size: 20px" value="Create Product" />
+    </div>
+</form>
+
+
+
+
+
+
+
+
