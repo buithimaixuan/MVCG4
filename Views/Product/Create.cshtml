@@ -1,3 +1,123 @@
+@model ShowCatPro
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
 }
+
+
+<form asp-action="Create" method="post" class="border border-2 rounded-4 p-4 pt-2" style="margin: 0px 30px;" enctype="multipart/form-data">
+                    <div class="text-center mb-3">
+                        <span class="h3 fw-bold">Thêm mới sản phẩm</span>
+                    </div>
+                    <div class="d-flex" style="gap: 20px;">
+                        <div class="w-100">
+                            <div class="form-outline w-100 form-group">
+                                <input type="hidden" asp-for="pro.ProId" readonly value="0">
+                                <div class="form-hover">
+                                    <input type="text" asp-for="pro.ProName" placeholder="Tên sản phẩm"
+                                           class="form-control form-control-lg"/>
+                                    <label asp-for="pro.ProName" class="form-label">Tên sản phẩm</label>
+                                </div>
+                                <span class="error errorProName text-danger fw-bold font-italic"></span>
+                            </div>
+
+                            <div class="form-group form-outline mt-4 w-100">
+                                <div class="form-hover">
+                                    <input type="number"  asp-for="pro.ProPrice" placeholder="Giá gốc"
+                                           class="form-control form-control-lg" />
+                                    <label  asp-for="pro.ProPrice" class="form-label">Giá gốc</label>
+                                </div>
+                                <span class="error errorPrice text-danger fw-bold font-italic"></span>
+                            </div>
+
+                            <div class="form-group form-outline mt-4 w-100">
+                                <div class="form-hover">
+                                    <input type="number"  asp-for="pro.Discount" placeholder="Giá bán"
+                                           class="form-control form-control-lg" />
+                                    <label asp-for="pro.Discount"  class="form-label">Giá bán</label>
+                                </div>
+                                <span class="error errorRealPrice text-danger fw-bold font-italic"></span>
+                            </div>
+                            <div class="form-group form-outline mt-4 w-100">
+                                <div class="form-hover">
+                                    <input type="text" asp-for="pro.Brand"  placeholder="Thương hiệu"
+                                           class="form-control form-control-lg" />
+                                    <label asp-for="pro.Brand" class="form-label">Thương hiệu (option)</label>
+                                </div>
+                                <span class="error errorBrand text-danger fw-bold font-italic"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="w-100">
+
+                            <div class="form-outline mt-3 w-100 mb-0">
+                                <label class="form-label h5">Loại sản phẩm</label>
+                                <div class="form-hover">
+                                    <select class="w-100 form-control form-control-lg" asp-for="pro.CatId">
+                                    @foreach (var item in Model.cat)
+                                        {
+                                            <option value="@item.CatId">@item.CatName</option>
+                                        }
+                                        
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mt-3">
+                                <label class="form-label h5">Xuất xứ</label>
+                                <div class="form-hover">
+                                    <select class="w-100 form-control form-control-lg" asp-for="pro.Origin">
+                                        <option value="Việt Nam">Việt Nam</option>
+                                        <option value="Trung quốc">Trung quốc</option>
+                                        <option value="Mỹ">Mỹ</option>
+                                        <option value="Hàn">Hàn</option>
+                                        <option value="Thái Lan">Thái Lan</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mt-4">
+                                <label class="form-label h5">Ngày tạo sản phẩm</label>
+                                <div class="form-hover">
+                                    <input type="date" asp-for="pro.CreateDate" class="form-control form-control-lg" />
+                                </div>
+                                <span id="dateError" class="text-danger fw-bold font-italic"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label class="form-label h5 mt-4" >Hình ảnh sản phẩm: </label>
+                    <div class="d-flex mt-0" style="gap: 20px">
+                        <div class="d-flex mt-0 w-100">
+                            <div class="form-outline mt-4 w-100 col">
+                                <div class="d-flex">
+                                    <div class="validate form-outline col">
+                                        <label class="form-label h5">Hình ảnh 1</label>
+                                        <div class="form-hover">
+                                            <div class="d-flex">
+                                                <input type="file" name="proPic1" id="proPic1" accept="image/*"
+                                            class="border form-control form-control-lg">
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group form-outline mt-5    ">
+                        <div class="form-hover">
+                            <textarea type="text" asp-for="pro.ProDescription" placeholder="Mô tả và thông tin khác"
+                                      class="form-control form-control-lg" rows="8" cols="10" style="max-height: 150px;"></textarea>
+                            <label class="form-label">Mô tả và thông tin khác</label>
+                        </div>
+                        <span class="error errorDescription text-danger font-italic fw-bold"></span>
+                    </div>
+                    <div class="form-outline mb-3 mt-4">
+                        <input type="submit"  class="btn btn-success w-100" style="font-size: 20px" value="Create New Product"/>
+                    </div> 
+                </form>
