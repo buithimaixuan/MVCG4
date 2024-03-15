@@ -40,7 +40,7 @@
                     </a>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-7 d-flex align-items-center p-0">
-                    <form class="search-box" method="post" action="ProductController">
+                    <form class="search-box" method="post" asp-controller="Home" asp-action="SearchProduct">
                         <!--NAM CODE HERE-->
                         <input name="value-search" type="text" value="" placeholder="Search...">
                         <button id="searchBtn" name="search-btn" type="submit" class="search-box-btn">

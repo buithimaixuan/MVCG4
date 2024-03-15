@@ -49,7 +49,7 @@ namespace MVCG4.Controllers
         public IActionResult AddToCart()
         {
             int getProId = int.Parse(Request.Form["product_ID"]);
-            int? getAccId = HttpContext.Session.GetInt32("AccountID");
+            int getAccId = Convert.ToInt32(HttpContext.Session.GetInt32("AccountID"));
             MultiModels mulModel = new MultiModels();
 
             // Lấy thông tin account

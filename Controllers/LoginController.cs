@@ -104,6 +104,7 @@ namespace MVCG4.Controllers
              
             if (user.IsAdmin == 1)
             {
+                ViewBag.getUsername = login.Username;
                 return RedirectToAction("Index", "Admin");
             }
 

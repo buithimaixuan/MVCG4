@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyProductAttribute("MVCG4")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e81d269339a5db863eab96d61562ea782398f57f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9070f983c69f15d8358ce6ab129f537a41b7ebe0")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MVCG4.Views")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 

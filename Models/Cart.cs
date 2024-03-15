@@ -9,7 +9,7 @@ namespace MVCG4.Models
     {
         public Cart(){
         }
-        public int? AccId { get; set; }
+        public int AccId { get; set; }
         public int ProId { get; set; }
         public int ProQuantity { get; set; }
         public decimal CartPrice { get; set; }

@@ -45,13 +45,26 @@ namespace MVCG4.Controllers
         }
         public IActionResult IndexAll()
         {
-            var query = from p in _db.Products
-                        where p.IsDelete == 0
-                        select p;
-            IEnumerable<Product> list = query.ToList();
-            string username = HttpContext.Session.GetString("Username");
-            ViewBag.getUsername = username;
-            return View(list);
+            string searchSession = HttpContext.Session.GetString("SearchValue");
+            if (searchSession != null && !searchSession.Equals(""))
+            {
+                IEnumerable<Product> list = this._db.Products.Where(p => p.ProName.Contains(searchSession) && p.IsDelete == 0).ToList();
+                HttpContext.Session.SetString("SearchValue", "");
+                string username = HttpContext.Session.GetString("Username");
+                ViewBag.getUsername = username;
+                return View(list);
+            }
+            else
+            {
+                var query = from p in _db.Products
+                            where p.IsDelete == 0
+                            select p;
+                IEnumerable<Product> list = query.ToList();
+                string username = HttpContext.Session.GetString("Username");
+                ViewBag.getUsername = username;
+                return View(list);
+            }
+
         }
 
         public IActionResult SNL()
@@ -263,6 +276,13 @@ namespace MVCG4.Controllers
             return list;
         }
 
+        [HttpPost]
+        public IActionResult SearchProduct()
+        {
+            string getSearch = Request.Form["value-search"];
+            HttpContext.Session.SetString("SearchValue", getSearch);
+            return RedirectToAction("IndexAll", "Home");
+        }
 
     }
 }

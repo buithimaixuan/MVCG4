@@ -62,7 +62,7 @@ namespace MVCG4.Controllers
         [HttpPost]
         public IActionResult PayProduct(MultiModels mulModel)
         {
-            int? getAccID = HttpContext.Session.GetInt32("AccountID");
+            int getAccID = Convert.ToInt32(HttpContext.Session.GetInt32("AccountID"));
 
             // Kiểm tra input
             if (ModelState.IsValid)
