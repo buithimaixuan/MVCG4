@@ -8,7 +8,7 @@ namespace MVCG4.Models
     public class ShowCatPro
     {
         public List<Category> cat { get; set; }
-        public List<Product> pro { get; set; }
+        public Product pro { get; set; }
 
     }
 }
